@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{title}}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .info {
+        margin-bottom: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      .total {
+        font-weight: bold;
+        text-align: right;
+        margin-top: 20px;
+      }
+      .timestamp {
+        font-size: 12px;
+        text-align: right;
+        margin-top: 40px;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <h1> {{titleOrder}} </h1>
+    <div class="info">
+      <p><strong>Order ID:</strong> {{orderId}}</p>
+      <p><strong>Customer:</strong> {{customer}}</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th style="text-align:right;">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each items}}
+        <tr>
+          <td>{{name}}</td>
+          <td style="text-align:right;">$ {{price}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+
+    {{#if includeTimestamp}}
+    <div class="timestamp">
+      Generated at: {{timestamp}}
+    </div>
+    {{/if}}
+  </body>
+</html>
